@@ -1,0 +1,8 @@
+path to input files:<full path to mpileup files>/*.pileup.gz
+path to temporary compute space (exclude final slash):/pmglocal/jau2112
+path to output folder (exclude final slash):<full path to destination folder for output>
+"all", only samples from "same" donor, path to pairs file, or only samples from donors not in .fam file (path to .fam):all
+sequencing quality threshold:36
+alignment quality threshold:36
+job ID:<name for job, name for output folder>
+graph:<yes or no>

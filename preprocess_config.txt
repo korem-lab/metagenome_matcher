@@ -1,0 +1,9 @@
+path to input files:<full path to folder with input files>/*.<extension, either .bam OR .bam.gz>
+path to fixnames file:<full path to>/fixednames_file.tsv
+path to tmp folder:<full path to temp folder>
+path to output folder:<full path to destination folder for final output>
+path to chromosome dictionary:<full path to>/chrom_dict.txt
+path to list of target loci:<full path to>/target_loci.txt
+human genome reference fasta:<full path to>/GCA_000001405.15_GRCh38_genomic.fna
+length (in bp) of reference:<length of reference, can use 3182177115 for GCA_000001405.15_GRCh38_genomic.fna>
+job ID:<name of job to label folders and temp files>

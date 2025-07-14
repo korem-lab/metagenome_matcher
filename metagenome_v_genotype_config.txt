@@ -1,0 +1,9 @@
+path to input files:<full path to mpileups>/*.pileup.gz
+path to temporary compute space:<full path to temp folder>
+path to output folder:<full path to destination folder with final output>
+self, all, or path to pairs file:all
+path to input genotype PLINK fileset:<full path to PLINK fileset>/<basename of .bed, .bim, .bam files>
+sequencing quality threshold:36
+alignment quality threshold:36
+job ID:<name of job, will be used to name output folder>
+graph?:yes
