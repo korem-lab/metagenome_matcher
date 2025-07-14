@@ -3,7 +3,7 @@ Verify sample identities and detect processing errors using host/human SNPs infe
 1) compare SNPs inferred from metagenomic sequencing of a sample to independently-obtained SNPs (such as SNPs from a genotype microarray) to identify the true donor of a sample. Requires a separate source of SNP data in addition to metagenomic sequencing.
 2) compare SNPs inferred from metagenomic sequencing between samples. Requires multiple metagenomic samples per individual. 
 
-## CRITICAL: File Naming Conventions
+## IMPORTANT: File Naming Conventions
 The following naming conventions are critical for determining which donors supplied which sample(s) according to sample labels.
 
 All metagenomic samples must be labeled in the following convention: donorname_samplename. For example, sample A1 from study participant Bob could be labeled Bob_A1. If samples are not already in this format, they can be renamed using the "fixnames" function of preprocess.py (see below). If supplying a PLINK fileset for Approach #1, set both FID and IID as the donorname. For example, Bob would appear in the .fam file of the PLINK fileset with FID=Bob and IID=Bob. 
@@ -13,14 +13,19 @@ preprocess.py, metagenome_v_genotype.py, metagenome_v_metagenome.py, and downsam
 - on each line of config files, type parameters directly after the colon (do not place a space after the colon).
 - when supplying full paths to directories, exlude the final slash (e.g, /my/full/path instead of /my/full/path/)
 - you will supply paths to both output folders and temp folders for intermediate files that will be deleted. These folders do not have to exist (the program will create them if they do not already exist), but the folder they are to be created in must exist.
-- choose job IDs that are unique and descriptive, as these job IDs will be used to label both temp and final output files and folders
-- for metagenome_v_metagenome.py and metagenome_v_genotype.py, both sequencing and alignement thresholds to filter by should be supplied as Phred scores
+- choose job IDs that are unique and descriptive, as they will be used to label both temp and final output files and folders
+- supply any necessary tables or dataframes headerless, index-free, space-delimited text files
 
 ## Prerequisites:
 You will require samtools (1.17), bcftools (1.21), and PLINK (1.90b6.26).
 
 ## Preprocessing
-Regardless of your chosen approach, all samples will need processing with preprocess.py. Input files must be in .bam or .bam.gz format (alignments of metagenomic sequencing data to the host/human genome). If you desire to rename your files in the final output, you can supply a .tsv with original and new file names (one original:new name pair per line). All preprocessing parameters are specified in the config file (see preprocess_config.txt). Output (processed samples in samtools mpileup format, as well as a a .tsv file with coverage of the host genome for each sample) are stored in the specified destination folder.
+Regardless of your chosen approach, all samples will need processing with preprocess.py. Input files must be in .bam or .bam.gz format (alignments of metagenomic sequencing data to the host/human genome). All preprocessing parameters are specified in the config file (see preprocess_config.txt). Output (processed samples in samtools mpileup format, as well as a a .tsv file with coverage of the host genome for each sample) are stored in the specified destination folder.
+
+### Notes on parameters
+- To rename  files in the final output, supply a space-delimited file with original file names in the first column and new names in the second column.
+- If you plan to use Approach #1, ensure that the chromosome names in your .bam files are the same as the chromosome names your additional genotype dataset. If they differ (e.g., "CM000663.2" vs "1"), you can supply a space-delimited file: the first column of the file should be chromosome names as they appear in sequencing files, and the second column should be chromosome names as they appear in your SNP array genotypes. If chromosome names match between sequencing and SNP array genotypes, or if you will be comparing sequencing to sequencing (mpileup swapped analysis), leave this blank.
+- You must supply a list of loci to compare genotypes (space-separated file with chromosome names in first column, position coordinates in second column). Comparing only at select loci can greatly reduce the size of each file and thus speed up downstream comparisons and decrease storage constraints. If using Approach #1, a good choice would be to filter for only loci in profiled by the genotype microarray. target_loci.txt (loci profiled by the Infinium Multi-Ethnic Global Array (Illumina, USA)) in this repo can be used.
 
 ### On the Command Line: 
 python preprocess.py preprocess_config.txt
@@ -31,7 +36,7 @@ Compare host SNPs inferred from metagenomic sequencing to genotypes from an inde
 ### Modes:
 - "all": compare each sample to all individuals with available genotype data.
 - "self": compare each sample to the genotypes of its labeled donor (confirm high concurrence between labeled sample donor and sample)
-- [path to pairs file]: supply a space-separated file with specific metagenome:genotype pairs to compare (each pair on its own line)
+- [path to pairs file]: supply a space-delimited file with specific metagenome:genotype pairs to compare (each pair on its own line)
 
 ### On the Command Line:
 python metagenome_v_genotype.py metagenome_v_genotype_config.txt
@@ -42,7 +47,7 @@ Compare host SNPs inferred from metagenomic sequencing between samples. metageno
 ### Modes:
 - "all": compare all possible pairs of samples within the specified input directory
 - "same": compare only samples labeled as being from the same donor (and thus expected to be similar)
-- [path to a pairs file]: supply a space-separated file with specific pairs of samples to compare (each pair on its own line)
+- [path to a pairs file]: supply a space-delimited file with specific pairs of samples to compare (each pair on its own line)
 - [path to .fam file]: only samples with labeled donors NOT in the specified .fam file (samples whose labeled donors lack independently-obtained genotypes and are thus ineligible for analysis with Approach #1) will be analyzed. These samples will be compared with other samples from their labeled donor.
 
 ### On the Command Line:
