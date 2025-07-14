@@ -4,5 +4,5 @@ path to coverage file:<path to coverage file>.tsv
 path to temp folder:<full path to temp folder>
 path to destination:<full path to destination folder for output>
 thresholds:<comma-separated list of read counts to downsample to>
-seeds:<random seeds, either comma-separated list or end-inclusive range, e.g. 1-10>
+random seeds:<comma-separated list or end-inclusive range (1-10), # of seeds determines # of experiments per threshold>
 job ID:<job ID, will be used to label output folder>
