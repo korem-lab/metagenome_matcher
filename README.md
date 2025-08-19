@@ -1,7 +1,7 @@
 # metagenome_matcher
 Verify sample identities and detect processing errors using host/human SNPs inferred from metagenomic sequencing. Use one or both of the following approaches depending on your dataset: 
-1) compare SNPs inferred from metagenomic sequencing of a sample to independently-obtained SNPs (such as SNPs from a genotype microarray) to identify the true donor of a sample. Requires a separate source of SNP data in addition to metagenomic sequencing.
-2) compare SNPs inferred from metagenomic sequencing between samples. Requires multiple metagenomic samples per individual. 
+1) Metagenome v. Genotype: compare SNPs inferred from metagenomic sequencing of a sample to independently-obtained SNPs (such as SNPs from a genotype microarray) to identify the true donor of a sample. Requires a separate source of SNP data in addition to metagenomic sequencing.
+2) Metagenome v. Metagenome: compare SNPs inferred from metagenomic sequencing between samples. Requires multiple metagenomic samples per individual. 
 
 ## IMPORTANT: File Naming Conventions
 The following naming conventions are critical for determining which donors supplied which sample(s) according to sample labels.
