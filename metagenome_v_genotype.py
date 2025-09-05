@@ -259,7 +259,7 @@ if __name__ == '__main__':
         mpile_df_dict = {m: pd.read_pickle(f"{tmp_path}/tmp_mp/{m}.df.gz") for m in samples}
         geno_to_load = ""
         # initialize empty dataframe
-        concat = pd.DataFrame(columns=["sample_1", "genotype", "with_data", "strict_concur", "lax_concur", "strict_score", "lax_score"])
+        concat = pd.DataFrame(columns=["sample", "genotype", "with_data", "strict_concur", "lax_concur", "strict_score", "lax_score"])
         # PARALLELIZE IF DESIRED
         for ap in all_pairs:
             if geno_to_load != ap.split(":")[1]: # load in new genotype
