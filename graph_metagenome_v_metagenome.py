@@ -14,7 +14,7 @@ def basic_heatmap(matrix, cdf, vm, savepath):
                 cmap="viridis", vmax=vm)
     ax_covg_cbar.yaxis.tick_left()
     plt.subplots_adjust(wspace=0.05)
-    plt.savefig(savepath)
+    plt.savefig(savepath, bbox_inches="tight")
     plt.clf()
 
 def heatmap_maker(matrix, granges, vlabels, cdf, vm, savepath):
@@ -42,7 +42,7 @@ def heatmap_maker(matrix, granges, vlabels, cdf, vm, savepath):
         for pos in ['right', 'top', 'bottom', 'left']:
             x.spines[pos].set_visible(False)
     plt.subplots_adjust(hspace=0.05, wspace=0.05)
-    plt.savefig(savepath)
+    plt.savefig(savepath, bbox_inches="tight")
     plt.clf()
 
 def matrix_maker(sset, cat): # intakes list of samples and a dataframe with swapped results
@@ -87,26 +87,25 @@ def concat_graph(concat, temp, ji, covg_df):
         plt.figure(figsize=(30, 12))
         sns.boxplot(data=nosame, x="same", y="strict_score", orient= "v", palette='Greys')
         sns.swarmplot(data=nosame, x="same", y="strict_score", orient="v", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-        plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxplot_samevsother")
+        plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxplot_samevsother", bbox_inches="tight")
         plt.clf()
         # plot boxplots for lax score, differentiating by whether samples came from same vs other person
         plt.figure(figsize=(30, 12))
         sns.boxplot(data=nosame, x="same", y="lax_score", orient= "v", palette='Greys')
         sns.swarmplot(data=nosame, x="same", y="lax_score", orient="v", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-        plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxplot_samevsother")
+        plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxplot_samevsother", bbox_inches="tight")
         plt.clf()
     # plot boxplot for strict score
     sns.boxplot(data=nosame, x="strict_score", palette="Greys")
     sns.swarmplot(data=nosame, x="strict_score", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-    plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxplot")
+    plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxplot", bbox_inches="tight")
     plt.clf()
     # plot boxplot for lax score
     sns.boxplot(data=nosame, x="lax_score", palette="Greys")
     sns.swarmplot(data=nosame, x="lax_score", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-    plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxplot")
+    plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxplot", bbox_inches="tight")
     plt.clf()
     # make matrix
-    concat = concat[concat["with_data"] > 1000]
     samps = list(set(concat["sample_1"].to_list() + concat["sample_2"].to_list()))
     samps.sort()  # sort samples alphabetically
     if covg_df.empty:  # no coverage file provided, instead use size of mpileup as proxy for coverage

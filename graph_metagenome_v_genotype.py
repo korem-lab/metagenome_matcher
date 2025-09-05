@@ -13,7 +13,7 @@ def basic_heatmap(matrix, cdf, vm, savepath):
                 cmap="viridis", vmax=vm)
     ax_covg_cbar.yaxis.tick_left()
     plt.subplots_adjust(wspace=0.05)
-    plt.savefig(savepath)
+    plt.savefig(savepath, bbox_inches="tight")
     plt.clf()
 
 def heatmap_maker(matrix, granges, vlabels, cdf, vm, savepath):
@@ -41,7 +41,7 @@ def heatmap_maker(matrix, granges, vlabels, cdf, vm, savepath):
         for pos in ['right', 'top', 'bottom', 'left']:
             x.spines[pos].set_visible(False)
     plt.subplots_adjust(hspace=0.05, wspace=0.05)
-    plt.savefig(savepath)
+    plt.savefig(savepath, bbox_inches="tight")
     plt.clf()
 
 def matrix_maker(sset, gset, cat):
@@ -71,19 +71,19 @@ def concat_graph(concat, temp, ji, covg_df):
         concat["donor"] = concat.apply(lambda row: "donor_individual" if "_".join(row["sample"].split("_")[:-1]) == row["genotype"] else "other_individual", axis=1)
         sns.boxplot(data=concat, x="donor", y="strict_score", orient="v", palette='Greys')
         sns.swarmplot(data=concat, x="donor", y="strict_score", orient="v", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-        plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxswarm_bydonor")
+        plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxswarm_bydonor", bbox_inches="tight")
         plt.clf()
         sns.boxplot(data=concat, x="donor", y="lax_score", orient="v", palette='Greys')
         sns.swarmplot(data=concat, x="donor", y="lax_score", orient="v", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-        plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxswarm_bydonor")
+        plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxswarm_bydonor", bbox_inches="tight")
         plt.clf()
     sns.boxplot(data=concat, x="strict_score", palette='Greys')
     sns.swarmplot(data=concat, x="strict_score", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-    plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxswarm")
+    plt.savefig(f"{temp}/SNPstats_{ji}/strict_boxswarm", bbox_inches="tight")
     plt.clf()
     sns.boxplot(data=concat, x="lax_score", palette='Greys')
     sns.swarmplot(data=concat, x="lax_score", hue="with_data", palette='rainbow',dodge=False, alpha=0.8)
-    plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxswarm")
+    plt.savefig(f"{temp}/SNPstats_{ji}/lax_boxswarm", bbox_inches="tight")
     plt.clf()
     # make matrix
     ss.sort()
