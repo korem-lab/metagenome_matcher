@@ -1,0 +1,9 @@
+path to input files:<path>/metagenome_matcher/toy_data/toy_results/preprocess_toypreprocess/mpileup_filtered/*.pileup.gz
+path to temporary compute space:<path>/metagenome_matcher/toy_data/toy_tmp
+path to output folder:<path>/metagenome_matcher/toy_data/toy_results
+self, all, or path to pairs file:all
+path to input genotype PLINK fileset:<path>/metagenome_matcher/toy_data/array_data/array_data
+sequencing quality threshold (as Phred score):36
+alignment quality threshold (as Phred score):36
+job ID:toymvg
+graph?:yes

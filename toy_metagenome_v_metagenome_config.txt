@@ -1,0 +1,8 @@
+path to input files:<path>/metagenome_matcher/toy_data/toy_results/preprocess_toypreprocess/mpileup_filtered/*.pileup.gz
+path to temporary compute space (exclude final slash):<path>/metagenome_matcher/toy_data/toy_tmp
+path to output folder (exclude final slash):<path>/metagenome_matcher/toy_data/toy_results
+"all", only samples from "same" donor, path to pairs file, or only samples from donors not in .fam file (path to .fam):all
+sequencing quality threshold (as Phred score):36
+alignment quality threshold (as Phred score):36
+job ID:toymvm
+graph:yes

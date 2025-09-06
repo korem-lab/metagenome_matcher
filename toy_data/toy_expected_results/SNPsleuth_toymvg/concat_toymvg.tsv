@@ -1,0 +1,9 @@
+sample	genotype	with_data	strict_concur	lax_concur	strict_score	lax_score	coverage
+personA_sample1	personA	34	34	34	100.0	100.0	1.257e-08
+personA_sample2	personA	34	34	34	100.0	100.0	1.257e-08
+personB_sample1	personA	33	27	27	81.81818181818183	81.81818181818183	1.257e-08
+personB_sample2	personA	33	27	27	81.81818181818183	81.81818181818183	1.257e-08
+personA_sample1	personB	34	28	28	82.35294117647058	82.35294117647058	1.257e-08
+personA_sample2	personB	34	28	28	82.35294117647058	82.35294117647058	1.257e-08
+personB_sample1	personB	33	33	33	100.0	100.0	1.257e-08
+personB_sample2	personB	33	33	33	100.0	100.0	1.257e-08

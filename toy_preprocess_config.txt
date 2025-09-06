@@ -1,0 +1,9 @@
+path to input files:<path>/metagenome_matcher/toy_data/bams/*.bam
+path to fixnames file:
+path to tmp folder:<path>/metagenome_matcher/toy_data/toy_tmp
+path to output folder:<path>/metagenome_matcher/toy_data/toy_results
+path to chromosome dictionary:<path>/metagenome_matcher/toy_data/toy_chromosome_dictionary.txt
+path to list of target loci:<path>/metagenome_matcher/toy_data/toy_target_loci.txt
+host/human genome reference fasta:<path>/metagenome_matcher/toy_data/GCA_000001405.29_GRCh38.p14_genomic.fna
+length (in bp) of reference:3182177115
+job ID:toypreprocess

@@ -1,0 +1,11 @@
+sample_1	sample_2	with_data	strict_concur	lax_concur	strict_score	lax_score	coverage_1	coverage_2
+personA_sample1	personA_sample1	34	34	34	100.0	100.0	1.257e-08	1.257e-08
+personA_sample1	personA_sample2	34	34	34	100.0	100.0	1.257e-08	1.257e-08
+personA_sample1	personB_sample1	33	27	27	81.81818181818183	81.81818181818183	1.257e-08	1.257e-08
+personA_sample1	personB_sample2	33	27	27	81.81818181818183	81.81818181818183	1.257e-08	1.257e-08
+personA_sample2	personA_sample2	34	34	34	100.0	100.0	1.257e-08	1.257e-08
+personA_sample2	personB_sample1	33	27	27	81.81818181818183	81.81818181818183	1.257e-08	1.257e-08
+personA_sample2	personB_sample2	33	27	27	81.81818181818183	81.81818181818183	1.257e-08	1.257e-08
+personB_sample1	personB_sample1	33	33	33	100.0	100.0	1.257e-08	1.257e-08
+personB_sample1	personB_sample2	33	33	33	100.0	100.0	1.257e-08	1.257e-08
+personB_sample2	personB_sample2	33	33	33	100.0	100.0	1.257e-08	1.257e-08
