@@ -1,7 +1,10 @@
 # metagenome_matcher
-Verify sample identities and detect processing errors using host/human SNPs inferred from metagenomic sequencing. Use one or both of the following approaches depending on your dataset: 
-1) Metagenome v. Genotype: compare SNPs inferred from metagenomic sequencing of a sample to independently-obtained SNPs (such as SNPs from a genotype microarray) to identify the true donor of a sample. Requires a separate source of SNP data in addition to metagenomic sequencing.
-2) Metagenome v. Metagenome: compare SNPs inferred from metagenomic sequencing between samples. Requires multiple metagenomic samples per individual. 
+<img src="https://github.com/korem-lab/metagenome_matcher/blob/main/metagenome_matcher_logo.png" width="150">
+<p>Verify sample identities and detect processing errors using host/human SNPs inferred from metagenomic sequencing. Use one or both of the following approaches depending on your dataset:</p> 
+<ol>
+  <li>Metagenome v. Genotype: compare SNPs inferred from metagenomic sequencing of a sample to independently-obtained SNPs (such as SNPs from a genotype microarray) to identify the true donor of a sample. Requires a separate source of SNP data in addition to metagenomic sequencing.</li>
+  <li>Metagenome v. Metagenome: compare SNPs inferred from metagenomic sequencing between samples. Requires multiple metagenomic samples per individual.</li>
+</ol>
 
 ## IMPORTANT: File Naming Conventions
 The following naming conventions are critical for determining which donors supplied which sample(s) according to sample labels.
