@@ -91,3 +91,9 @@ Simulated data (both ```.bam``` files and array genotypes in PLINK format) are p
 5. Run ```python preprocess.py toy_preprocess_config.txt```
 6. Run ```python metagenome_v_metagenome.py toy_metagenome_v_metagenome_config.txt```. Compare the results output to ```metagenome_matcher/toy_data/toy_results/SNPsleuth_toymvm``` to those in ```metagenome_matcher/toy_data/toy_expected_results/SNPsleuth_toymvm```
 7. Run ```python metagenome_v_genotype.py toy_metagenome_v_genotype_config.txt```. Compare the results output to ```metagenome_matcher/toy_data/toy_results/SNPsleuth_toymvg``` to those in ```metagenome_matcher/toy_data/toy_expected_results/SNPsleuth_toymvg```
+
+
+   
+Citing metagenome_matcher
+-----------------------
+Urban J.A. et al. Identification of Sample Processing Errors in Microbiome Studies Using Host Genetic Profiles. bioRxiv (2025). https://doi.org/10.1101/2025.09.07.674724
